@@ -11,6 +11,9 @@ RUN npm install
 # Copy source code
 COPY . .
 
+# Create public directory if it doesn't exist
+RUN mkdir -p /app/public
+
 # Expose port
 EXPOSE 3000
 

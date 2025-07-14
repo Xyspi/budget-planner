@@ -40,12 +40,8 @@ services:
       - backend
     ports:
       - "3000:3000"
-    volumes:
-      - ./frontend:/app:z
-      - /app/node_modules
     environment:
       - CHOKIDAR_USEPOLLING=true
-    user: "1000:1000"
     command: npm start
 
 volumes:
