@@ -30,7 +30,7 @@ services:
     ports:
       - "8000:8000"
     volumes:
-      - ./backend:/app
+      - ./backend:/app:delegated
     command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
 
   frontend:
@@ -40,7 +40,7 @@ services:
     ports:
       - "3000:3000"
     volumes:
-      - ./frontend:/app
+      - ./frontend:/app:delegated
       - /app/node_modules
     environment:
       - CHOKIDAR_USEPOLLING=true

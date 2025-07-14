@@ -1,9 +1,11 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from .core.config import settings
-from .core.database import engine
-from .models import *
+from .core.database import engine, Base
 from .routers import auth, config, transactions, budget
+
+# Import all models to ensure they are registered with SQLAlchemy
+from .models import user, category, account, transaction, budget_forecast, memo_item, savings_allocation, savings_goal, credit_detail
 
 # Création des tables
 Base.metadata.create_all(bind=engine)
