@@ -8,11 +8,12 @@ COPY package*.json ./
 # Install dependencies
 RUN npm install
 
-# Copy source code
+# Copy all source code including public directory
 COPY . .
 
-# Create public directory if it doesn't exist
-RUN mkdir -p /app/public
+# List contents to debug
+RUN ls -la /app/
+RUN ls -la /app/public/ || echo "No public directory found"
 
 # Expose port
 EXPOSE 3000
