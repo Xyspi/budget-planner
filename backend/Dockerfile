@@ -1,8 +1,5 @@
 FROM python:3.11-slim
 
-# Create a non-root user
-RUN useradd --create-home --shell /bin/bash app
-
 WORKDIR /app
 
 # Install system dependencies
@@ -14,12 +11,8 @@ RUN apt-get update && apt-get install -y \
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy application code and set ownership
+# Copy application code
 COPY . .
-RUN chown -R app:app /app
-
-# Switch to non-root user
-USER app
 
 # Expose port
 EXPOSE 8000
