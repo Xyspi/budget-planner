@@ -1,0 +1,51 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer components {
+  .budget-card {
+    @apply bg-white rounded-lg shadow-sm border border-gray-200 p-6;
+  }
+  
+  .budget-header {
+    @apply bg-budget-header text-white px-4 py-3 rounded-t-lg font-semibold;
+  }
+  
+  .budget-table {
+    @apply w-full border-collapse border border-gray-300;
+  }
+  
+  .budget-table th,
+  .budget-table td {
+    @apply border border-gray-300 px-3 py-2 text-sm;
+  }
+  
+  .budget-table th {
+    @apply bg-budget-light font-semibold;
+  }
+  
+  .budget-table tr:nth-child(even) {
+    @apply bg-gray-50;
+  }
+  
+  .budget-input {
+    @apply w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-budget-header focus:border-transparent;
+  }
+  
+  .budget-button {
+    @apply px-4 py-2 bg-budget-header text-white rounded-md hover:bg-opacity-90 focus:outline-none focus:ring-2 focus:ring-budget-header focus:ring-offset-2 transition-colors;
+  }
+  
+  .budget-button-secondary {
+    @apply px-4 py-2 bg-gray-200 text-gray-800 rounded-md hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 transition-colors;
+  }
+}
